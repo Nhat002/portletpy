@@ -1,4 +1,8 @@
-#Example portlet descriptor
+Example portlet descriptor
+
+= portlet.xml =
+
+This is an example of a typical portlet descriptor. The `portlet-class` defines the PyPortlet portlet dispatcher. The init parameter `python.home` specifies the location of your Jython installation (default is /WEB-INF/lib). The `python.portlet` is required and specifies the Python class that implements the Portlet interface.
 
 {{{
     <portlet>

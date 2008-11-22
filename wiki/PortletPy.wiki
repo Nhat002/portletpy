@@ -26,3 +26,34 @@ class NamePortlet (Portlet):
             response << '<p>Hello ' << request['name'] << '</p>'
 	    response << '<a href="' << response.view() << '">Bye!</a>'
 }}}
+
+== Complex Example ==
+This portlet does a lot of stuff to demonstrate what is possible. Not that you would under normal circumstances not generate the HTML in the class but instead dispatch to a template. 
+{{{
+class JythonPortlet (Portlet):
+    def view(self, request, response):
+        response << '<h2>Hello Jython</h2>'
+
+        if 'name' in request:
+            response << '<p>Hello ' << request['name'] << '</p>'
+	    response << '<a href="' << response.view() << '">Bye!</a>'
+
+	elif 'page' in request:
+            self.dispatch('/' + request['page'] + '.jsp', request, response)
+
+	else:
+            response << '<a href="' << response.view(page='index') << '">Index</a>' \
+             '<form action="' << response.action() << '"' <<  """
+               <input type="text" name="name"/>
+               <input type="submit" />
+              </form> """ 
+	    response << '<a href="' << response.action(name='Vidar') << '">I am Vidar!</a>'
+
+            if 'previous' in request.session:
+    	        response << '<p>' << request.session['previous'] << ' was here.</p>'
+
+    def action(self, request, response):
+        name = request['name']
+        response.name = name
+	request.session['previous'] = name
+}}}

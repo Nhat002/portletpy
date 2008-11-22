@@ -8,6 +8,7 @@ The `portlet.py` module wraps the JSR-168 API to make is super simple to program
 The `portlet.Portlet` class delegates calls to `render` and `processAction` to `view` and `action`, respectively. The request / response objects are then wrapped in python objects that implement many of the __ methods for nicer syntax.
 
 == Hello World ==
+This portlet demonstrates how to send output to the response using the `<<` operator for C++ style output.
 {{{
 from portlet import Portlet
 
@@ -17,6 +18,7 @@ class HelloPortlet (Portlet):
 }}}
 
 == Accessing parameters ==
+This portlet demonstrates how to check if a parameter is in the request and how to access it. It also shows how to use the `response.view(**params)` method to create portlet render URLs. To create an action URL, use `response.action(**parameters)`.
 {{{
 class NamePortlet (Portlet):
     def view(self, request, response):

@@ -1,0 +1,25 @@
+Examples of portlets in Jython
+
+= Introduction =
+
+Here are a few examples of Python portlets. See PortletXml on how to deploy them in your webapp.
+
+= Hello World =
+
+{{{
+from javax.portlet import GenericPortlet
+ 
+class HelloPortlet(GenericPortlet):
+    def render(self, request, response):
+       response.writer.append("<p>Hello World!</p>")
+}}}
+
+= Dispatching to a JSP file =
+{{{
+class JythonJspPortlet (GenericPortlet):
+	def init(self, config):
+		self.index = config.portletContext.getRequestDispatcher('/index.jsp')
+
+	def render(self, request, response):
+		self.index.include(request, response)
+}}}

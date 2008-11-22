@@ -1,0 +1,5 @@
+Documentation for the `portlet.py` module
+
+= Introduction =
+
+The `portlet.py` module wraps the JSR-168 API to make is super simple to program portlets using Python syntax.

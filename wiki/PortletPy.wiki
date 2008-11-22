@@ -18,7 +18,7 @@ class HelloPortlet (Portlet):
 }}}
 
 == Accessing parameters ==
-This portlet demonstrates how to check if a parameter is in the request and how to access it. It also shows how to use the `response.view(**params)` method to create portlet render URLs. To create an action URL, use `response.action(**parameters)`.
+This portlet demonstrates how to check if a parameter is in the request and how to access it. It also shows how to use the `response.view(**params)` method to create portlet render URLs. To create an action URL, use `response.action(**params)`.
 {{{
 class NamePortlet (Portlet):
     def view(self, request, response):

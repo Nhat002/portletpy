@@ -46,16 +46,16 @@ class JythonPortlet (Portlet):
         elif 'name' in request:
             # use the name request parameter to greet the user
             response << '<p>Hello ' << request['name'] << '</p>'
-            # view() generates URL to the view() method of the portlet
+            # response.view() generates URL to the view() method of the portlet
             # Request parameters can be added if needed with keyword args (see next block)
 	    response << '<a href="' << response.view() << '">Bye!</a>'
 
 	else:
-            # The << syntax just a shorthand for write()
+            # The << operator sends to the OutputStream while write sends to the Writer
             response.write('<h2>Hello Jython</h2>')
             # Pass request parameters to the view method generates the appropriate URL
-            # action() generates URL to the action method, parameters can be added key
-            # with keyword args (or in the form input elements). Action is executed before
+            # action() generates URL to the action method, parameters can be added with
+            # keyword args (or in the form input elements). Action is executed before
             # view() and only if the request comes from an action URL
             response << '<a href="' << response.view(page='index') << '">Index</a>' \
              '<form action="' << response.action() << '"' <<  """

@@ -1,10 +1,10 @@
 #labels Featured
-Examples of portlets in Jython
+Examples of JSR-168 portlets in Jython
 
 = Introduction =
 
 Here are a few examples of Python portlets. See PortletXml on how to deploy them in your webapp.
-
+These portlets simply subclass the `GenericPortlet` Java class.
 = Hello World =
 
 {{{

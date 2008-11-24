@@ -10,11 +10,12 @@ from time import gmtime, strftime
 
 class LogPortlet (Portlet):
     def view(self, request, response):
-        response << '<ul>' 
         logs = request.session['logs']
         if logs is None:
             logs = []
             request.session['logs'] = logs
+            response << '<p>You have no messages, add a new message below.</p>'
+        response << '<ul>' 
         for log in logs:
             response << '<li>' << log << '</li>'
         response << '</ul>'
@@ -28,5 +29,5 @@ class LogPortlet (Portlet):
     def action(self, request, response):
         message = request['message']
         date = strftime("%a, %d %b %Y %H:%M:%S", gmtime())
-        request.session['logs'].append(date + ': ' + message)
+        request.session['logs'].append(date + ' : ' + message)
 }}}

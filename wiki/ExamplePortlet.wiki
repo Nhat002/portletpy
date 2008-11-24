@@ -15,16 +15,19 @@ class LogPortlet (Portlet):
             logs = []
             request.session['logs'] = logs
             response << '<p>You have no messages, add a new message below.</p>'
-        response << '<ul>' 
-        for log in logs:
-            response << '<li>' << log << '</li>'
-        response << '</ul>'
 
         response << '<form method="post" action="' << response.action() << '">' <<  """
                        <label>Message</label>
                        <input type="text" name="message" />
                        <input type="submit" value="Send" />
                     </form> """ 
+
+        response << '<ul>' 
+        for log in logs:
+            response << '<li>' << log << '</li>'
+        response << '</ul>'
+
+
 
     def action(self, request, response):
         message = request['message']

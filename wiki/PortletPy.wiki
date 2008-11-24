@@ -6,7 +6,7 @@ Documentation for the `portlet.py` module
 The `portlet.py` module wraps the JSR-168 API to make is super simple to program portlets using Python syntax.
 
 = Examples =
-The `portlet.Portlet` class delegates calls to `render` and `processAction` to `view` and `action`, respectively. The request / response objects are then wrapped in python objects that implement many of the __ methods for nicer syntax.
+The `portlet.Portlet` class delegates calls to `render` and `processAction` to `view` and `action`, respectively. The `request` / `response` objects are then wrapped in python objects that implement many of the `__` methods for nicer syntax.
 
 == Hello World ==
 This portlet demonstrates how to send output to the response using the `<<` operator for C++ style output.

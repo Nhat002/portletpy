@@ -58,7 +58,7 @@ class JythonPortlet (Portlet):
             # keyword args (or in the form input elements). Action is executed before
             # view() and only if the request comes from an action URL
             response << '<a href="' << response.view(page='index') << '">Index</a>' \
-             '<form action="' << response.action() << '"' <<  """
+             '<form action="' << response.action() << '">' <<  """
                <input type="text" name="name"/>
                <input type="submit" />
               </form> """ 

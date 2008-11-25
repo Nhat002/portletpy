@@ -15,11 +15,11 @@
         
         <init-param>
         	<name>python.home</name>
-			<value>/Users/pjesi/jython2.2.1</value>
+			<value>/usr/local/jython2.2.1</value>
         </init-param>        
         <init-param>
         	<name>python.portlet</name>
-        	<value>myportlet.LogPortlet</value>
+        	<value>exampleportlets.LogPortlet</value>
         </init-param>
 
         <supports>

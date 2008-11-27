@@ -19,7 +19,7 @@
         </init-param>        
         <init-param>
         	<name>python.portlet</name>
-        	<value>exampleportlets.LogPortlet</value>
+        	<value>exampleportlets.JythonPortlet</value>
         </init-param>
 
         <supports>

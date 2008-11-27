@@ -89,7 +89,7 @@ class ActionResponse(portlet.ActionResponse):
     def __init__(self, response):
         self.__dict__['response'] = response
 
-    def __setattr__(self, name, value):
+    def __setitem__(self, name, value):
         self.response.setRenderParameter(name, value)
 
 

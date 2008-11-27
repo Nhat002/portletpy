@@ -1,7 +1,20 @@
 from javax.portlet import GenericPortlet
 from portlet import Portlet
 
- 
+class ExampleUse(Portlet):
+    def render(self, req, res):
+        res << "<p>Hello World, how are we?</p>"
+        counter = req.session['counter']
+        url = res.action(name='python')
+        
+
+    def action(self, req, res):
+        name = req['name']
+
+
+        
+
+
 class HelloPortlet(GenericPortlet):
     def render(self, req, res):
        res.writer.append("<p>Hello World, how are we?</p>")
@@ -56,14 +69,17 @@ class JythonPortlet (Portlet):
 
         elif 'name' in request:
             # use the name request parameter to greet the user
-            response << '<p>Hello ' << request['name'] << '</p>'
+            response.write ( '<p>Hello ' + request['name'] + '</p>')
             # response.view() generates URL to the view() method of the portlet
             # Request parameters can be added if needed with keyword args (see next block)
-	    response << '<a href="' << response.view() << '">Bye!</a>'
+            # you can also use print
+	    print >>response, '<a href="' 
+            print >>response, response.view() 
+            print >>response, '">Bye!</a>'
 
 	else:
             # The << operator sends to the OutputStream while write sends to the Writer
-            response.write('<h2>Hello Jython</h2>')
+            response << '<h2>Hello Jython</h2>'
             # Pass request parameters to the view method generates the appropriate URL
             # action() generates URL to the action method, parameters can be added with
             # keyword args (or in the form input elements). Action is executed before
@@ -87,7 +103,7 @@ class JythonPortlet (Portlet):
         # Access action parameters, e.g. from forms.
         name = request['name']
         # Make name available to the request object in view()
-        response.name = name
+        response['name'] = name
 
         # Add the name to session
 	request.session['previous'] = name

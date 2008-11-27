@@ -103,7 +103,7 @@ public class PyPortlet extends GenericPortlet {
 	@Override
 	public void processAction(ActionRequest request, ActionResponse response)
 			throws PortletException, IOException {
-		
+				
 		Portlet portlet = getPortlet();
 		portlet.processAction(request, response);
 	}
@@ -111,6 +111,7 @@ public class PyPortlet extends GenericPortlet {
 	@Override
 	public void render(RenderRequest request, RenderResponse response)
 			throws PortletException, IOException {
+		
 		
 		Portlet portlet = getPortlet();
 		response.setContentType(request.getResponseContentType());

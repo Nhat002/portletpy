@@ -13,14 +13,14 @@ public class JettyPyPortletLauncher {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception {
-		 System.setProperty("org.apache.pluto.embedded.portletId", "portletpy");
+		 System.setProperty("org.apache.pluto.embedded.portletId", "jython-portlet");
 	     Server server = new Server(8082);
 	     WebAppContext webapp = new WebAppContext("src/main/webapp", "/test");
 	     webapp.setDefaultsDescriptor("/WEB-INF/jetty-pluto-web-default.xml");
 	     ServletHolder portletServlet = new ServletHolder(new PortletServlet());
-	     portletServlet.setInitParameter("portlet-name", "portletpy");
+	     portletServlet.setInitParameter("portlet-name", "jython-portlet");
 	     portletServlet.setInitOrder(1);
-	     webapp.addServlet(portletServlet, "/PlutoInvoker/portletpy");
+	     webapp.addServlet(portletServlet, "/PlutoInvoker/jython-portlet");
 	     
 	     server.addHandler(webapp);
 	     server.start();

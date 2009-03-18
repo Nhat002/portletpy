@@ -35,4 +35,31 @@
         </portlet-info>
     </portlet>
 
+
+    <portlet>
+        <description>Inline Jython Portlet</description>
+        <portlet-name>jython-portlet</portlet-name>
+        <display-name>Inline Jython Portlet</display-name>
+        <portlet-class>is.hax.portlet.InlinePyPortlet</portlet-class>
+
+        <init-param>
+        	<name>python.home</name>
+			<value>/usr/local/jython2.2.1</value>
+        </init-param>
+
+
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>VIEW</portlet-mode>
+            <portlet-mode>Edit</portlet-mode>
+        </supports>
+        <supported-locale>en</supported-locale>
+
+        <portlet-info>
+            <title>Inline Jython Portlet</title>
+            <short-title>Jython Portlet</short-title>
+            <keywords>jython portlet</keywords>
+        </portlet-info>
+    </portlet>
+
 </portlet-app>

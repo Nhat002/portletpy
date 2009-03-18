@@ -10,9 +10,11 @@ import org.python.util.PyServlet;
 
 public class PyPortletIntegrationTest extends WebTestCase {
 
-	public void testIndexPageDisplaysMessage() throws Exception {
+    // TODO yo dawg! you forgot your testing
+
+    public void testIndexPageDisplaysMessage() throws Exception {
 	    // Start at the pluto driver entry point
-	    beginAt("/pluto/index.jsp");
+        beginAt("/pluto/index.jsp");
 	    assertTextPresent("Hello Jython");
 	}
 	

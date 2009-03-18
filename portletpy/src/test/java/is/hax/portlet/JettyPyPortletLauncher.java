@@ -12,7 +12,8 @@ public class JettyPyPortletLauncher {
 	 * @param args
 	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws Exception {
+    // TODO need launcher for both PyPortlet and InlinePortlet
+    public static void main(String[] args) throws Exception {
 		 System.setProperty("org.apache.pluto.embedded.portletId", "jython-portlet");
 	     Server server = new Server(8082);
 	     WebAppContext webapp = new WebAppContext("src/main/webapp", "/test");

@@ -31,6 +31,8 @@ public class InlinePyPortlet extends GenericPortlet {
 
 
     private PythonInterpreter interp;
+
+    // I hate vanilla portlets
     private static final String EDIT_JSP = "/WEB-INF/jsp/inline/edit.jsp";
 
 
@@ -54,6 +56,8 @@ public class InlinePyPortlet extends GenericPortlet {
         request.setAttribute(JYTHON_INLINE_SCRIPT, script);
 
         PortletMode mode = request.getPortletMode();
+        // I hate vanilla portlets
+        // I know doEdit is supposed to work but it didn't in my testing
         if (PortletMode.VIEW.equals(mode)) {
             Portlet portlet = getPortlet(script);
             response.setContentType("text/html");
@@ -73,12 +77,16 @@ public class InlinePyPortlet extends GenericPortlet {
         if (cls == null) {
             throw new PortletException(
                     "No callable (class or function) named " + JYTHON_INLINE_SCRIPT_NAME);
+                    // TODO can we get rid of this requirement?
+
         }
         PyObject pyPortlet = cls.__call__();
         Object o = pyPortlet.__tojava__(Portlet.class);
         if (o == Py.NoConversion) {
             throw new PortletException("The value from " + JYTHON_INLINE_SCRIPT_NAME
                     + " must implement Portlet interface");
+                    // TODO can we get rid of this requirement?
+
         }
         portlet = (Portlet) o;
         portlet.init(getPortletConfig());

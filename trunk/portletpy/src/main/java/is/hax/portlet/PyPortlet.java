@@ -141,6 +141,7 @@ public class PyPortlet extends GenericPortlet {
 		}
 
 		// Config parameters
+        // TODO is this the same as the one above, need to verify
 		e = getInitParameterNames();
 		while (e.hasMoreElements()) {
 			String name = (String) e.nextElement();
